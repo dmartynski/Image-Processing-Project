@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ca1.PCB_Controller">
+    <children>
+        <!-- Original ImageView -->
+        <ImageView fx:id="imageView" fitHeight="512.0" fitWidth="512.0" layoutX="20.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" onMousePressed="#getColour" />
+
+        <!-- Second ImageView for drawing rectangles and text -->
+        <ImageView fx:id="rectImageView" fitHeight="512.0" fitWidth="512.0" layoutX="550.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+
+        <!-- Button and TextField Container -->
+        <VBox spacing="15.0" layoutX="20.0" layoutY="600.0">
+            <Label fx:id="totalNumber" text="Components:" />
+            <HBox spacing="10.0">
+                <Button fx:id="chooseImageButton" text="Choose Image" onAction="#chooseImage" />
+                <Button fx:id="resetImageButton" text="Original" onAction="#resetImage" />
+                <Button fx:id="drawRectButton" text="Analyze" onAction="#drawRect" />
+                <Button fx:id="drawTextButton" text="Draw Text" onAction="#drawTextInRectangles" />
+                <Button fx:id="drawEverything" text="Draw Everything" onAction="#drawRectanglesAndText" />
+                <Button text="Random Color Components" onAction="#randomColorComponents"/>
+                <Button text="Print Component Sizes" onAction="#printComponentSizesButtonAction"/>
+            </HBox>
+
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Noise Reduction:" />
+                <TextField fx:id="noiseReductionTextField" prefHeight="25.0" prefWidth="100.0" />
+            </HBox>
+
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <TextField fx:id="RED" promptText="Red" prefHeight="25.0" prefWidth="80.0" />
+                <TextField fx:id="GREEN" promptText="Green" prefHeight="25.0" prefWidth="80.0" />
+                <TextField fx:id="BLUE" promptText="Blue" prefHeight="25.0" prefWidth="80.0" />
+                <Button text="Set Colour" onAction="#handleSetColorButtonAction" />
+            </HBox>
+        </VBox>
+
+        <Label fx:id="infoLabel" alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="30.0" prefWidth="960.0" text="PCB Analyzer">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
